@@ -1,17 +1,18 @@
-const SERVER_IP = "play.royalmc.in";
+```javascript
+const copyButton = document.getElementById("copy-ip");
+const ipElement = document.getElementById("server-ip");
+const message = document.getElementById("copy-message");
 
-function copyIP() {
-  navigator.clipboard.writeText(SERVER_IP).then(() => {
-    const msg = document.getElementById("copied");
-    if (msg) {
-      msg.textContent = "✓ Server IP copied: " + SERVER_IP;
-      setTimeout(() => msg.textContent = "", 3000);
+if (copyButton && ipElement && message) {
+  copyButton.addEventListener("click", async () => {
+    const ip = ipElement.textContent.trim();
+
+    try {
+      await navigator.clipboard.writeText(ip);
+      message.textContent = "Server IP copied!";
+    } catch (error) {
+      message.textContent = "IP: " + ip + " — copy it manually.";
     }
-  }).catch(() => {
-    alert("Server IP: " + SERVER_IP);
   });
 }
-
-function comingSoon() {
-  alert("ROYAL MC ranks are coming soon!");
-}
+```
