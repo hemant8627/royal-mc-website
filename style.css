@@ -1,4 +1,3 @@
-```css
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
@@ -130,5 +129,4 @@ footer small { color: #68738a; font-size: 10px; }
   .feature-card { flex-wrap: wrap; }
   .coming { margin-left: 0; }
 }
-```
 
