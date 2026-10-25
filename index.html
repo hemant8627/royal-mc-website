@@ -1,146 +1,75 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ROYAL MC - Minecraft Survival Server">
-  <title>ROYAL MC | Minecraft Server</title>
+  <meta name="theme-color" content="#080b14">
+  <title>ROYAL MC | Official Minecraft Server</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="navbar">
-    <a class="logo" href="#home">ROYAL <span>MC</span></a>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#ranks">Ranks</a>
-      <a href="#rules">Rules</a>
-      <a href="#staff">Staff</a>
-    </nav>
-    <a class="nav-btn" href="#play">Play Now</a>
+  <header class="topbar">
+    <a class="brand" href="index.html">👑 ROYAL <span>MC</span></a>
+    <span class="online-tag"><i></i> ROYAL MC IS BACK SOON</span>
   </header>
 
   <main>
-    <section id="home" class="hero">
-      <div class="hero-content">
-        <div class="status"><span></span> SERVER ONLINE</div>
-       <div class="owner-badge">
-  <div class="owner-crown">👑</div>
-  <div class="owner-info">
-    <span class="owner-title">OWNER</span>
-    <span class="owner-name">Gamer Hemant</span>
-  </div>
-       </div>
-        <h1>ROYAL <span>MC</span></h1>
-        <p class="tagline">Build your kingdom. Make your legacy.</p>
-        <p class="subtext">A unique Minecraft Survival experience where every player can become a legend.</p>
-        <div class="buttons">
-          <button class="primary" onclick="copyIP()">COPY SERVER IP</button>
-          <a class="secondary" href="#about">EXPLORE SERVER</a>
-        </div>
-        <div class="server-ip">
-          <span id="serverIP">play.royalmc.in</span>
-          <small>Java + Bedrock</small>
-        </div>
-      </div>
+    <section class="hero">
       <div class="hero-glow"></div>
-    </section>
-
-    <section id="about" class="section">
-      <div class="section-title">
-        <p>WELCOME TO</p>
-        <h2>ROYAL MC</h2>
+      <div class="owner-badge">
+        <span class="crown">👑</span>
+        <div><small>SERVER OWNER</small><strong>GAMER HEMANT</strong></div>
       </div>
-      <div class="cards">
-        <article class="card">
-          <div class="icon">⚔</div>
-          <h3>Survival</h3>
-          <p>Build, explore, trade and create your own kingdom in our survival world.</p>
-        </article>
-        <article class="card">
-          <div class="icon">👑</div>
-          <h3>Ranks</h3>
-          <p>Unlock exclusive perks and show your status with unique server ranks.</p>
-        </article>
-        <article class="card">
-          <div class="icon">🏆</div>
-          <h3>Competition</h3>
-          <p>Climb the leaderboards, earn money and become one of the server legends.</p>
-        </article>
+
+      <p class="eyebrow">YOUR KINGDOM. YOUR LEGACY.</p>
+      <h1>ROYAL <span>MC</span></h1>
+      <p class="tagline">Build your kingdom. Make your legacy.</p>
+      <p class="intro">Your next Minecraft adventure is coming. Gather your friends and get ready!</p>
+
+      <div class="server-box">
+        <div><small>JAVA SERVER ADDRESS</small><strong id="server-ip">play.royalmc.in</strong></div>
+        <button id="copy-ip" class="primary-btn">COPY IP</button>
+      </div>
+      <p id="copy-message" class="copy-message" aria-live="polite"></p>
+
+      <div class="hero-links">
+        <a href="#server-stuff" class="primary-btn">EXPLORE SERVER</a>
+        <a href="https://discord.gg/KZwjVbQU3" target="_blank" rel="noopener noreferrer" class="outline-btn">JOIN DISCORD ↗</a>
       </div>
     </section>
 
-    <section id="ranks" class="section alt">
-      <div class="section-title">
-        <p>CHOOSE YOUR</p>
-        <h2>RANK</h2>
-      </div>
-      <div class="rank-grid">
-        <div class="rank-card">
-          <h3>PRIME</h3>
-          <p class="rank-price">COMING SOON</p>
-          <ul><li>Exclusive prefix</li><li>Special perks</li><li>Priority features</li></ul>
-          <button onclick="comingSoon()">COMING SOON</button>
-        </div>
-        <div class="rank-card featured">
-          <div class="badge">POPULAR</div>
-          <h3>DOMINATOR</h3>
-          <p class="rank-price">COMING SOON</p>
-          <ul><li>Premium prefix</li><li>Extra perks</li><li>More exclusive features</li></ul>
-          <button onclick="comingSoon()">COMING SOON</button>
-        </div>
-        <div class="rank-card">
-          <h3>ROYAL</h3>
-          <p class="rank-price">COMING SOON</p>
-          <ul><li>Royal prefix</li><li>Special commands</li><li>Member benefits</li></ul>
-          <button onclick="comingSoon()">COMING SOON</button>
-        </div>
+    <section class="category-section" id="server-stuff">
+      <div class="section-heading"><p class="eyebrow">UPGRADE YOUR ADVENTURE</p><h2>SERVER <span>STUFF</span></h2><p>Choose what you want to explore.</p></div>
+      <div class="category-grid">
+        <a class="category-card" href="ranks.html">
+          <div class="card-icon">♛</div><span class="card-label">PLAYER BENEFITS</span>
+          <h3>BUY RANKS</h3><p>Unlock your place in the kingdom.</p><span class="card-link">EXPLORE RANKS ↗</span>
+        </a>
+        <a class="category-card" href="keys.html">
+          <div class="card-icon">🗝️</div><span class="card-label">SPECIAL REWARDS</span>
+          <h3>CRATE KEYS</h3><p>Discover the keys and rewards coming to Royal MC.</p><span class="card-link">EXPLORE KEYS ↗</span>
+        </a>
       </div>
     </section>
 
-    <section id="rules" class="section">
-      <div class="section-title">
-        <p>PLAY FAIR</p>
-        <h2>SERVER RULES</h2>
-      </div>
-      <div class="rules">
-        <div><b>01</b><span>Respect other players and staff.</span></div>
-        <div><b>02</b><span>No cheating, hacking or unfair advantages.</span></div>
-        <div><b>03</b><span>No griefing or stealing from protected players.</span></div>
-        <div><b>04</b><span>Keep chat friendly and appropriate.</span></div>
-      </div>
+    <section class="category-section" id="minecraft-stuff">
+      <div class="section-heading"><p class="eyebrow">MORE TO DISCOVER</p><h2>MINECRAFT <span>STUFF</span></h2><p>More server features will be revealed soon.</p></div>
+      <div class="feature-card"><span class="feature-icon">⛏</span><div><h3>NEW ADVENTURES AWAIT</h3><p>Stay tuned for upcoming features, events and surprises.</p></div><span class="coming">COMING SOON</span></div>
     </section>
 
-    <section id="staff" class="section alt">
-      <div class="section-title">
-        <p>MEET THE</p>
-        <h2>ROYAL STAFF</h2>
+    <section class="category-section community" id="community">
+      <div class="section-heading"><p class="eyebrow">STAY CONNECTED</p><h2>THE <span>COMMUNITY</span></h2><p>Follow the journey and be ready for our return.</p></div>
+      <div class="social-grid">
+        <a class="social-card discord" href="https://discord.gg/KZwjVbQU3" target="_blank" rel="noopener noreferrer"><span>◈</span><div><h3>DISCORD</h3><p>Join our community</p></div><b>↗</b></a>
+        <a class="social-card youtube" href="https://youtube.com/@gamerhemant8" target="_blank" rel="noopener noreferrer"><span>▶</span><div><h3>YOUTUBE</h3><p>Watch Gamer Hemant</p></div><b>↗</b></a>
       </div>
-      <div class="staff-card">
-        <div class="crown">♛</div>
-        <h3>OWNER</h3>
-        <p>ROYAL MC ADMINISTRATION</p>
-      </div>
-    </section>
-
-    <section id="play" class="join-section">
-      <h2>READY TO JOIN?</h2>
-      <p>Enter the Royal Kingdom today.</p>
-      <button class="primary big" onclick="copyIP()">COPY SERVER IP</button>
-      <p class="copied" id="copied"></p>
     </section>
   </main>
 
-  <footer>
-    <div class="logo">ROYAL <span>MC</span></div>
-    <p>© 2026 ROYAL MC. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="#home">Home</a>
-      <a href="#rules">Rules</a>
-      <a href="#play">Play</a>
-    </div>
-  </footer>
-
+  <footer><a class="brand" href="index.html">ROYAL <span>MC</span></a><p>Build your kingdom. Make your legacy.</p><small>© 2026 ROYAL MC. Minecraft is a trademark of Mojang Studios.</small></footer>
   <script src="script.js"></script>
 </body>
 </html>
+```
+
