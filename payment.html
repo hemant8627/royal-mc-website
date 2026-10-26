@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Payment | ROYAL MC</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.paybox{max-width:480px;margin:35px auto;padding:24px 18px;background:#101625;color:white;border:1px solid #b89546;border-radius:14px;text-align:center}
+.qr{display:block;width:100%;max-width:300px;margin:20px auto;border-radius:8px;background:white}
+.paybox label{display:block;text-align:left;margin-top:15px}
+.paybox input{box-sizing:border-box;width:100%;padding:12px;margin-top:7px;border-radius:7px;border:1px solid #596176;background:#1d2534;color:white}
+.paybtn{display:block;width:100%;box-sizing:border-box;padding:13px;margin-top:18px;border:0;border-radius:8px;background:#f5c45e;color:#111;font-weight:bold}
+.notice{font-size:13px;color:#c3ccdc;line-height:1.6}
+</style>
+</head>
+<body>
+<header class="topbar">
+<a class="brand" href="index.html">👑 ROYAL <span>MC</span></a>
+<a href="ranks.html">← Ranks</a>
+</header>
+
+<main class="paybox">
+<p style="color:#f5c45e">ROYAL MC STORE</p>
+<h1>Complete Payment</h1>
+<p>Selected Rank: <strong id="rank">ROYAL</strong></p>
+<h2 id="price">₹130</h2>
+
+<p>Scan this QR using your UPI app</p>
+<img class="qr" src="phonepe-qr.png" alt="PhonePe payment QR code">
+
+<p class="notice">Pay the exact amount shown above. Verify the payment in your UPI app before submitting an order.</p>
+
+<form id="proofForm">
+<label>Minecraft Username</label>
+<input id="mc" required maxlength="32" placeholder="Minecraft username">
+
+<label>Discord Username</label>
+<input id="discord" required maxlength="50" placeholder="Discord username">
+
+<label>Payment reference / UTR (optional)</label>
+<input id="utr" maxlength="40" placeholder="Enter transaction reference">
+
+<label>Payment screenshot</label>
+<input id="proof" type="file" accept="image/*" required>
+
+<button class="paybtn" type="submit">SUBMIT PAYMENT PROOF</button>
+</form>
+
+<p id="status" class="notice"></p>
+<p class="notice">Submitting details does not confirm payment. The server team must verify payment before granting your rank.</p>
+</main>
+
+<script>
+const prices={ROYAL:130,LEGEND:100,ELITE:80,TITAN:50,VIP:25};
+const params=new URLSearchParams(location.search);
+let order={};
+try{order=JSON.parse(sessionStorage.getItem("royalMcOrder")||"{}")}catch(e){}
+const rank=(params.get("rank")||order.rank||"ROYAL").toUpperCase();
+document.getElementById("rank").textContent=prices[rank]?rank:"ROYAL";
+document.getElementById("price").textContent="₹"+(prices[rank]||130);
+
+document.getElementById("proofForm").addEventListener("submit",function(e){
+e.preventDefault();
+document.getElementById("status").textContent=
+"Payment proof selected, but it has NOT been sent to staff. A secure upload service must be connected before orders can be submitted.";
+});
+</script>
+</body>
+</html>
+
