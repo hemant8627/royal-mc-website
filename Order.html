@@ -1,0 +1,57 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rank Order | ROYAL MC</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.order-box{max-width:500px;margin:40px auto;padding:25px;background:#101625;border:1px solid #b89546;border-radius:14px;color:white}
+.order-box label{display:block;margin-top:16px}
+.order-box input{box-sizing:border-box;width:100%;padding:12px;margin-top:7px;border-radius:7px;border:1px solid #596176;background:#1d2534;color:white}
+.order-box button{width:100%;padding:13px;margin-top:22px;border:0;border-radius:8px;background:#f5c45e;font-weight:bold}
+</style>
+</head>
+<body>
+<header class="topbar">
+<a class="brand" href="index.html">👑 ROYAL <span>MC</span></a>
+<a href="ranks.html">← Back to Ranks</a>
+</header>
+
+<main class="order-box">
+<p style="color:#f5c45e">ROYAL MC STORE</p>
+<h1>Rank Order</h1>
+<p>Selected Rank: <strong id="rank">ROYAL</strong></p>
+<p>Price: <strong id="price">₹130</strong></p>
+
+<form id="orderForm">
+<label>Minecraft Username</label>
+<input id="mcname" required maxlength="32" placeholder="Enter Minecraft username">
+
+<label>Discord Username</label>
+<input id="discord" required maxlength="50" placeholder="Enter Discord username">
+
+<button type="submit">CONTINUE TO PAYMENT</button>
+</form>
+<p style="font-size:12px;color:#aab3c5">Your rank will be granted only after the server team verifies your payment.</p>
+</main>
+
+<script>
+const prices={ROYAL:130,LEGEND:100,ELITE:80,TITAN:50,VIP:25};
+const params=new URLSearchParams(location.search);
+const rank=(params.get("rank")||"ROYAL").toUpperCase();
+document.getElementById("rank").textContent=prices[rank]?" "+rank:"ROYAL";
+document.getElementById("price").textContent="₹"+(prices[rank]||130);
+
+document.getElementById("orderForm").addEventListener("submit",function(e){
+e.preventDefault();
+const mc=document.getElementById("mcname").value.trim();
+const discord=document.getElementById("discord").value.trim();
+const order={rank:rank,price:prices[rank]||130,minecraft:mc,discord:discord};
+sessionStorage.setItem("royalMcOrder",JSON.stringify(order));
+location.href="payment.html";
+});
+</script>
+</body>
+</html>
